@@ -28,11 +28,8 @@ def limpar_tudo():
     return print("Dicionario limpado com sucesso ✅.")
 
 def mostrar_dicionario():
-    if chave not in dicionario:
-        print(f"Não existe um item com {chave} ❌.")
-    else:
-        for chave, valor in dicionario.items():
-            print(f"O item {chave} tem o valor {valor}.")
+    for chave, valor in dicionario.items():
+        print(f"O item {chave} tem o valor {valor}.")
 
 while True:
     menu()
