@@ -5,9 +5,15 @@
 frase = 'Parabens pra voce'
 frase = frase.replace(' ', '').lower()
 dicionario = {}
-for i in range(len(frase)):
-    if frase[i] in dicionario:
-        dicionario[frase[i]] = dicionario[frase[i]] + 1
+isso = {}
+for letra in frase:
+    if letra in dicionario:
+        dicionario[letra] = dicionario[letra] + 1
     else:
-        dicionario[frase[i]] = 1
+        dicionario[letra] = 1
+# OU
+for letras in frase:
+    isso[letras] = isso.get(letras,0) + 1
+
+print(isso)
 print(dicionario)
