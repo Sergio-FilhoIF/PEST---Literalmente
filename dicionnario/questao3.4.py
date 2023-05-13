@@ -16,7 +16,7 @@ def add_item(chave, valor):
 
 def remover_item(chave):
     if chave not in dicionario:
-        print(f"Não existe um item com {chave} ❌.")
+        print(f"Não existe um item com '{chave}' ❌.")
     else:
         del dicionario[chave]
         print(dicionario)
@@ -29,7 +29,7 @@ def limpar_tudo():
 
 def mostrar_dicionario():
     for chave, valor in dicionario.items():
-        print(f"O item {chave} tem o valor {valor}.")
+        print(f"O item '{chave}' tem o valor '{valor}'.")
 
 while True:
     menu()
@@ -46,7 +46,7 @@ while True:
         limpar_tudo()
 
     elif op == 4:
-        mostrar_dicionario()
+        print(mostrar_dicionario())
         
     elif op == 0:
         print("Programa fechado ✅.")
