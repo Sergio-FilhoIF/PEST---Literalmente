@@ -17,7 +17,7 @@ def add_produto(nome_produto, categoria, preco_produto):
     return print(produtos)
 
 def atualizar_preco(nome_produto, categoria, preco_produto):
-    produtos[nome_produto] = {'categoria': categoria,'preco': preco_produto}
+    produtos[nome_produto]['preco'] = preco_produto
     return print(produtos)
 
 def del_produto(nome_produto):
