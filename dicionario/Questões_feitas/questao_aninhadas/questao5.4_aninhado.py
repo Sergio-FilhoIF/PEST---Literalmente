@@ -104,40 +104,65 @@ while True:
         lista_notas_portugues = []
         nome_aluno = input("Digite o nome do aluno: ")
         while True:
-            nota_aluno = float(input("Digite a nota de matematica ou -1 para sair: "))
-        
-            if nota_aluno == -1:
+            nota_aluno = input("Digite a nota de matematica ou -1 para sair: ")
+            if nota_aluno == "-1":
                 break
             else:
-                lista_notas_matematica.append(nota_aluno)
-                continue
+                if nota_aluno.isdecimal() == True:
+                    nota_aluno = float(nota_aluno)
+                    if nota_aluno >= 0 and nota_aluno <= 10:
+                        
+                        lista_notas_matematica.append(nota_aluno)
+                        continue
+                    else:
+                        print("Nota errada.")
+                        break
+                elif nota_aluno.isdecimal() == False:
+                    print("Só pode numero.")
+                    break
         
         while True:
-            nota_aluno = float(input("Digite a nota de portugues ou -1 para sair: "))
-            
-            if nota_aluno == -1:
+            nota_aluno = input("Digite a nota de portugues ou -1 para sair: ")
+            if nota_aluno == '-1':
                 break
             else:
-                lista_notas_portugues.append(nota_aluno)
-                continue
+                if nota_aluno.isdecimal() == True:
+                    nota_aluno = float(nota_aluno)
+                    if nota_aluno >= 0 and nota_aluno <= 10:
+                        lista_notas_portugues.append(nota_aluno)
+                        continue
+                    else:
+                        print("Nota errada.")
+                        break
+                elif nota_aluno.isdecimal() == False:
+                    print("Só pode numero.")
+                    break
         add_aluno_nota(nome_aluno, lista_notas_matematica, lista_notas_portugues)
 
     elif op == 2:
         nome_aluno = input("Digite o nome do aluno: ")
-        print(boletin[nome_aluno]['matematica'])
-        print(boletin[nome_aluno]['portugues'])
-        pergunta_matematica = (int(input('Digite a nota que você queira editar de matematica ou -1 para sair, ex: 1, 2...: '))) - 1
-        pergunta_portugues = (int(input('Digite a nota que você queira editar de portugues ou -1 para sair, ex: 1, 2...: '))) - 1
-        if pergunta_matematica == -2 or pergunta_portugues == -2:
-            continue
+        if nome_aluno in nome_aluno:
+            print(boletin[nome_aluno]['matematica'])
+            print(boletin[nome_aluno]['portugues'])
+            pergunta_matematica = input('Digite a nota que você queira editar de matematica ou -1 para sair, ex: 1, 2...: ')
+            pergunta_portugues = input('Digite a nota que você queira editar de portugues ou -1 para sair, ex: 1, 2...: ')
+            if pergunta_matematica.isdecimal() == True and pergunta_portugues.isdecimal() == True:
+                pergunta_matematica = int(pergunta_matematica)-1
+                pergunta_portugues = int(pergunta_portugues)-1
+                if pergunta_matematica == -2 or pergunta_portugues == -2:
+                    continue
+                else:
+                    nota_matematica = boletin[nome_aluno]['matematica']
+                    nota_portugues = boletin[nome_aluno]['portugues']
+                    nota_matematica[(pergunta_matematica)-1] = (float(input("Digite a nova nota de matematica: ")))
+                    nota_portugues[(pergunta_portugues)-1] = (float(input("Digite a nova nota de portugues: ")))
+                atualizar_notas(nome_aluno,nota_matematica, nota_portugues)
+            else:        
+                print("Notas invalidas.")
+                continue
         else:
-            nota_matematica = boletin[nome_aluno]['matematica']
-            nota_portugues = boletin[nome_aluno]['portugues']
-            nota_matematica[pergunta_matematica] = (int(input("Digite a nova nota de matematica: ")))
-            nota_portugues[pergunta_portugues] = (int(input("Digite a nova nota de portugues: ")))
-            
-        
-        atualizar_notas(nome_aluno,nota_matematica, nota_portugues)
+            print("Aluno não existe.")
+            break
     
     elif op == 3:
         nome_aluno = input("Digite o nome do aluno que queira excluir: ")
@@ -152,11 +177,25 @@ while True:
 
     elif op == 6:
         
-        load_notas(boletin)
+        boletin = load_notas(boletin)
 
     elif op == 7:
         nome_aluno = input("Digite o nome do aluno que você queira vem as notas: ")
-        boletin = boletin[nome_aluno]
+        if nome_aluno in boletin:
+            boletin = boletin[nome_aluno]
+            print(boletin)
+        else:
+            print(f"{nome_aluno} não existe.")
 
     elif op == 0:
         break
+
+# nome = input('Digite a nota: ')
+# nome.replace('.','').replace(',','').replace(' ','')
+# verificador = nome.isalpha()
+# if verificador == True:
+#     print("a senha tem que ter pelo menos um numero")
+# elif nome.isdecimal() == True:
+#     print("Tem que ter pelo menos uma letra.")
+# else:
+#     print("Pronto")
