@@ -19,46 +19,70 @@ def menu():
     ''')
     return int(input('Digite a opção: '))
 
+
 def add_aluno_nota(nome_aluno, lista_nota_aluno_matematica, lista_nota_aluno_portugues):
-    boletin[nome_aluno] = {'matematica': lista_nota_aluno_matematica,'portugues': lista_nota_aluno_portugues}
-    print('=-'*7)
-    print(boletin)
-    print()
-    print('alunos matriculado.')
-    print('=-'*7)
+    if nome_aluno in boletin:
+        print("="*15)
+        print("Nome já existendi.")
+        print("="*15)
+    else:
+        boletin[nome_aluno] = {'matematica': lista_nota_aluno_matematica,'portugues': lista_nota_aluno_portugues}
+        print('=-'*7)
+        print(boletin)
+        print()
+        print('alunos matriculado.')
+        print('=-'*7)
     
 
 def atualizar_notas(nome_aluno, lista_nota_aluno_matematica, lista_nota_aluno_portugues):
-    boletin[nome_aluno]['matematica'] = lista_nota_aluno_matematica
-    boletin[nome_aluno]['portugues'] = lista_nota_aluno_portugues
-    print('=-'*7)
-    print(boletin)
-    print()
-    print('Notas atualizadas.')
-    print('=-'*7)
+    if nome_aluno in boletin:
+        boletin[nome_aluno]['matematica'] = lista_nota_aluno_matematica
+        boletin[nome_aluno]['portugues'] = lista_nota_aluno_portugues
+        print('=-'*7)
+        print(boletin)
+        print()
+        print('Notas atualizadas.')
+        print('=-'*7)
+    else:
+        print("="*15)
+        print(f"Nenhum aluno cadastrado com esse nome: {nome_aluno}.")
+        print("="*15)
+
 
 def excluir_aluno(nome_aluno):
-    del boletin[nome_aluno]
-    print('=-'*7)
-    print(boletin)
-    print()
-    print('aluno deletado.')
-    print('=-'*7)
+    if nome_aluno in boletin:
+        del boletin[nome_aluno]
+        print('=-'*7)
+        print(boletin)
+        print()
+        print('aluno deletado.')
+        print('=-'*7)
+    else:
+        print("="*15)
+        print(f"Nenhum aluno cadastrado com esse nome: {nome_aluno}.")
+        print("="*15)
+
 
 def calc_media(nome_aluno):
-    media = sum(boletin[nome_aluno]['matematica'])/len(boletin[nome_aluno]['matematica'])
-    print('=-'*7)
-    print(boletin[nome_aluno]['matematica'])
-    print()
-    print(f'Sua media em matematica é: {media}.')
-    print('=-'*7)
+    if nome_aluno in boletin:
+        media = sum(boletin[nome_aluno]['matematica'])/len(boletin[nome_aluno]['matematica'])
+        print('=-'*7)
+        print(boletin[nome_aluno]['matematica'])
+        print()
+        print(f'Sua media em matematica é: {media}.')
+        print('=-'*7)
 
-    media = sum(boletin[nome_aluno]['portugues'])/len(boletin[nome_aluno]['portugues'])
-    print('=-'*7)
-    print(boletin[nome_aluno]['portugues'])
-    print()
-    print(f'Sua media em portugues é: {media}.')
-    print('=-'*7)
+        media = sum(boletin[nome_aluno]['portugues'])/len(boletin[nome_aluno]['portugues'])
+        print('=-'*7)
+        print(boletin[nome_aluno]['portugues'])
+        print()
+        print(f'Sua media em portugues é: {media}.')
+        print('=-'*7)
+    else:
+        print("="*15)
+        print(f"Nenhum aluno cadastrado com esse nome: {nome_aluno}.")
+        print("="*15)
+
 
 def save_notas():
     with open('notas_alunos.json', 'w') as f:
