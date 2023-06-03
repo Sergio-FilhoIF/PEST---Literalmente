@@ -16,7 +16,7 @@ while True:
         while True:
             op = menu_turmas()
             if op == '1':
-                criar_turma()
+                criar_turma(dicionario_turmas)
             elif op == '2':
                 editar_turma()
             elif op == '3':

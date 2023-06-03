@@ -26,7 +26,7 @@ def menu_turmas():
 
 ===========================
     ''')
-    op = input("Digite a opção desejada ou escreva 'voltar: ")
+    op = input("Digite a opção desejada ou escreva 'voltar': ")
     print()
     print('===========================')
     return op

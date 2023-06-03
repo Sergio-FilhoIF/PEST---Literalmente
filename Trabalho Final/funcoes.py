@@ -1,8 +1,14 @@
-# ------------------------------------------------------------------------
+dicio
 # Funções que iram se repetir
     # Verificador de Erros
-def verificador_erro():
-    pass
+def verificador_dicionario(dicionario_professor, diocionario_aluno):
+    if len(dicionario_professor) == 0 and len(diocionario_aluno == 0):
+        print("Dicionario Vazio ❌.")
+        print()
+        print("Cadastre pelo menos um professor e um aluno")
+        return False
+    else:
+        return True
 
     # Função de Salvar
 def salvar():
@@ -11,8 +17,12 @@ def salvar():
 # ------------------------------------------------------------------------
 # Opções do menu das Turmas.
     # Opçao [1]
-def criar_turma():
-    pass
+def criar_turma(dicionario):
+    print('='*20)
+    verificador = verificador_dicionario(dicionario)
+    if verificador == True:
+        print("oi")
+        
     # Opçao [2]
 def editar_turma():
     pass
