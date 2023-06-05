@@ -1,11 +1,12 @@
-dicio
 # Funções que iram se repetir
     # Verificador de Erros
-def verificador_dicionario(dicionario_professor, diocionario_aluno):
-    if len(dicionario_professor) == 0 and len(diocionario_aluno == 0):
+def verificador_dicionario(dicionario):
+    if len(dicionario) == 0:
+        print('===========================')
         print("Dicionario Vazio ❌.")
         print()
         print("Cadastre pelo menos um professor e um aluno")
+        print('===========================')
         return False
     else:
         return True
@@ -17,12 +18,16 @@ def salvar():
 # ------------------------------------------------------------------------
 # Opções do menu das Turmas.
     # Opçao [1]
-def criar_turma(dicionario):
-    print('='*20)
-    verificador = verificador_dicionario(dicionario)
-    if verificador == True:
-        print("oi")
-        
+def criar_turma(dicionario_turma, dicionario_alunos, dicionario_professores):
+    verificador_professor = verificador_dicionario(dicionario_professores)
+    verificador_aluno = verificador_dicionario(dicionario_alunos)
+    lista_alunos = dicionario_alunos.get('Materia')
+    if verificador_aluno == True and verificador_professor == True:
+        for alunos in lista_alunos:
+            print()
+        return True
+    else:
+        return False
     # Opçao [2]
 def editar_turma():
     pass
@@ -36,14 +41,27 @@ def apagar_turma():
 # ------------------------------------------------------------------------
 # Opções do menu dos Professores.
     # Opçao [1]
-def cadastrar_professor():
-    pass
+def cadastrar_professor(nome_professor,dicionario_professor):
+    matricula_professor = 1
+    while True:
+        if matricula_professor != dicionario_professor:
+            matricula_professor += 1
+        else:
+            dicionario_professor[matricula_professor] = {'nome': nome_professor}
+            break
     # Opçao [2]
-def editar_professor():
-    pass
+def editar_professor(nome_professor, dicionario_professores):
+    if nome_professor in dicionario_professores:
+        
+    else:
+        print('Esse professor não está cadastrado.')
     # Opçao [3]
 def ver_dados_professor():
-    pass
+    nome_professor = input("Digite o nome do professor que deseja vê os dados: ")
+    matricula = 0
+    for nome_professor in nome.keys():
+        aux += 1
+        print(f'{matricula} - {nome_professor}')
     # Opçao [4]
 def apagar_professor():
     pass
@@ -57,8 +75,14 @@ def visualizar_alunos_turma_professor():
 # ------------------------------------------------------------------------
 # Opções do Menu dos Alunos.
     # Opçao [1]
-def cadastrar_aluno():
-    pass
+def cadastrar_aluno(dicionario,lista_ids):
+    print('===========================')
+    nome_aluno = input("Digite o nome do aluno: ")
+
+    lista_ids.append()
+    dicionario[id] = nome_aluno
+    print('===========================')
+
     # Opçao [2]
 def editar_aluno():
     pass
@@ -68,3 +92,11 @@ def visualizar_aluno():
     # Opçao [4]
 def apagar_aluno():
     pass
+
+
+
+print('''
+{{
+'dados':{'nome': 'Cataryna, 'id':1}
+}}
+''')

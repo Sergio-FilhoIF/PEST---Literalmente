@@ -16,7 +16,8 @@ while True:
         while True:
             op = menu_turmas()
             if op == '1':
-                criar_turma(dicionario_turmas)
+                criar_turma(dicionario_turmas, dicionario_alunos, dicionario_professores)
+
             elif op == '2':
                 editar_turma()
             elif op == '3':
@@ -35,7 +36,9 @@ while True:
         while True:
             op = menu_professores()
             if op == '1':
-                cadastrar_professor()
+                nome_professor = input("Digite o nome do professor: ")
+                
+                cadastrar_professor(nome_professor, dicionario_professores)
             elif op == '2':
                 editar_professor()
             elif op == '3':
@@ -80,3 +83,4 @@ while True:
         print()
         print(f"Opção '{op}' invalida ❌.")
         print()
+
