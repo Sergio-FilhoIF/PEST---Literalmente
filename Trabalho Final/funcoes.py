@@ -42,24 +42,18 @@ def apagar_turma():
 # Opções do menu dos Professores.
     # Opçao [1]
 def cadastrar_professor(nome_professor,dicionario_professor):
-    matricula_professor = 1
-    while True:
-        if matricula_professor != dicionario_professor:
-            matricula_professor += 1
-        else:
-            dicionario_professor[matricula_professor] = {'nome': nome_professor}
-            break
+    
     # Opçao [2]
 def editar_professor(nome_professor, dicionario_professores):
     if nome_professor in dicionario_professores:
-        
+        pass
     else:
         print('Esse professor não está cadastrado.')
     # Opçao [3]
-def ver_dados_professor():
+def ver_dados_professor(dicionario):
     nome_professor = input("Digite o nome do professor que deseja vê os dados: ")
     matricula = 0
-    for nome_professor in nome.keys():
+    for nome_professor in dicionario.keys():
         aux += 1
         print(f'{matricula} - {nome_professor}')
     # Opçao [4]
