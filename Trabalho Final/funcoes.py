@@ -24,7 +24,7 @@ def criar_turma(dicionario_turma, dicionario_alunos, dicionario_professores):
     lista_alunos = dicionario_alunos.get('Materia')
     if verificador_aluno == True and verificador_professor == True:
         for alunos in lista_alunos:
-            print()
+            print() 
         return True
     else:
         return False
