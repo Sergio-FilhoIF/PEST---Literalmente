@@ -43,6 +43,7 @@ def apagar_turma():
     # Opçao [1]
 def cadastrar_professor(nome_professor,dicionario_professor):
     
+    
     # Opçao [2]
 def editar_professor(nome_professor, dicionario_professores):
     if nome_professor in dicionario_professores:
