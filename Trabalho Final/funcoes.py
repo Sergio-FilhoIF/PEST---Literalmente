@@ -58,6 +58,7 @@ def cadastrar_professor(nome_professor):
     # Opçao [2]
 def editar_professor(nome_professor, dicionario_professores):
     for nome, id in dicionario_professores:
+        print('Matricula  Nome')
         print(f'{id}:{nome}')
 
     # Opçao [3]
