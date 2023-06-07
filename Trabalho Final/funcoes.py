@@ -56,12 +56,13 @@ def cadastrar_professor(nome_professor):
 
     
     # Opçao [2]
-def editar_professor(nome_professor, dicionario_professores):
+def editar_professor(id_professor, nome_professor_novo, dicionario_professores):
+    dicionario_professores = carregar_json('dicionario_professor')
     for nome, id in dicionario_professores:
         print('Matricula  Nome')
-        print(f'{id}:{nome}') 
-        
-
+        print(f'{id}:{nome}')
+    dicionario_professores[id_professor] = nome_professor_novo
+    
     # Opçao [3]
 def ver_dados_professor(dicionario):
     nome_professor = input("Digite o nome do professor que deseja vê os dados: ")
