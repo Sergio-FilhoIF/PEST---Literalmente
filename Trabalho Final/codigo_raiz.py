@@ -37,7 +37,6 @@ while True:
             op = menu_professores()
             if op == '1':
                 nome_professor = input("Digite o nome do professor: ")
-                
                 cadastrar_professor(nome_professor, dicionario_professores)
             elif op == '2':
                 editar_professor()

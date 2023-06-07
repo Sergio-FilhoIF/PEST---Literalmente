@@ -1,3 +1,4 @@
+import json
 # Funções que iram se repetir
     # Verificador de Erros
 def verificador_dicionario(dicionario):
@@ -11,9 +12,15 @@ def verificador_dicionario(dicionario):
     else:
         return True
 
+    # Função de Carregar
+def carregar_json(nome_arquivo):
+    with open(f'{nome_arquivo}.json', 'r') as f:
+        nome_arquivo = json.load(f)
+
     # Função de Salvar
-def salvar():
-    pass
+def salvar_json(nome_arquivo):
+    with open(f'{nome_arquivo}.json', 'w') as f:
+        json.dump(nome_arquivo, f)
 
 # ------------------------------------------------------------------------
 # Opções do menu das Turmas.
@@ -41,22 +48,27 @@ def apagar_turma():
 # ------------------------------------------------------------------------
 # Opções do menu dos Professores.
     # Opçao [1]
-def cadastrar_professor(nome_professor,dicionario_professor):
-    
+def cadastrar_professor(nome_professor):
+    dicionario_professor = carregar_json('dicionario_professor')
+    matricula = len(dicionario_professor) + 1
+    dicionario_professor[matricula] = nome_professor
+    salvar_json('dicionario_professor')
+
     
     # Opçao [2]
 def editar_professor(nome_professor, dicionario_professores):
-    if nome_professor in dicionario_professores:
-        pass
-    else:
-        print('Esse professor não está cadastrado.')
+    for nome, id in dicionario_professores:
+        print(f'{id}:{nome}')
+
     # Opçao [3]
 def ver_dados_professor(dicionario):
     nome_professor = input("Digite o nome do professor que deseja vê os dados: ")
     matricula = 0
-    for nome_professor in dicionario.keys():
-        aux += 1
-        print(f'{matricula} - {nome_professor}')
+    professores = []
+    for nome_professor in dicionario.values():
+        professores.append(nome_professor)
+
+
     # Opçao [4]
 def apagar_professor():
     pass
