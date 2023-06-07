@@ -13,6 +13,7 @@ dicionario_alunos = {}
 while True:
     op = menu_inicial()
     if op == '1':
+        
         while True:
             op = menu_turmas()
             if op == '1':
