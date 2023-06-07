@@ -16,12 +16,12 @@ def verificador_dicionario(dicionario):
 def carregar_json(nome_arquivo):
     with open(f'{nome_arquivo}.json', 'r') as f:
         nome_arquivo = json.load(f)
-
+    return nome_arquivo
     # Função de Salvar
 def salvar_json(nome_arquivo):
     with open(f'{nome_arquivo}.json', 'w') as f:
         json.dump(nome_arquivo, f)
-
+    return print("oi")
 # ------------------------------------------------------------------------
 # Opções do menu das Turmas.
     # Opçao [1]
@@ -49,18 +49,20 @@ def apagar_turma():
 # Opções do menu dos Professores.
     # Opçao [1]
 def cadastrar_professor(nome_professor):
+    salvar_json('dicionario_professor')
     dicionario_professor = carregar_json('dicionario_professor')
-    matricula = len(dicionario_professor) + 1
+    matricula = (len(dicionario_professor)) + 1
     dicionario_professor[matricula] = nome_professor
     salvar_json('dicionario_professor')
-
     
     # Opçao [2]
-def editar_professor(nome_professor, dicionario_professores):
+def editar_professor(id_professor, nome_professor_novo, dicionario_professores):
+    dicionario_professores = carregar_json('dicionario_professor')
     for nome, id in dicionario_professores:
-        print('Matricula  Nome')
-        print(f'{id}:{nome}') 
-        
+        print(f'{"Matricula": ^15}{"Nome": ^15}')
+        print(f'{id: ^15}:{nome: ^15}')
+    dicionario_professores[id_professor] = nome_professor_novo
+    salvar_json('dicionario_professor')
 
     # Opçao [3]
 def ver_dados_professor(dicionario):
@@ -101,11 +103,3 @@ def visualizar_aluno():
     # Opçao [4]
 def apagar_aluno():
     pass
-
-
-
-print('''
-{{
-'dados':{'nome': 'Cataryna, 'id':1}
-}}
-''')
