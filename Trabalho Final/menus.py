@@ -13,6 +13,7 @@ def menu_inicial():
     print('===========================')
     return op
 
+
 # ------------------------------------------------------------------------
 # Menu que da acesso ao CRUD das Turmas.
 def menu_turmas():
