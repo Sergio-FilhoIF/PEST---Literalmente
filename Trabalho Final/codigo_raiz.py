@@ -37,9 +37,12 @@ while True:
             op = menu_professores()
             if op == '1':
                 nome_professor = input("Digite o nome do professor: ")
-                cadastrar_professor(nome_professor, dicionario_professores)
+                cadastrar_professor(nome_professor)
             elif op == '2':
-                editar_professor()
+                id_professor = input("Digite o id do professor que voçê que editar: ")
+                id_professor = int(id_professor)
+                nome_professor_novo = input(f"Digite o novo nome do professor:'{dicionario_professores[id_professor]}': ")
+                editar_professor(id_professor, nome_professor_novo, dicionario_professores)
             elif op == '3':
                 ver_dados_professor()
             elif op == '4':
@@ -83,4 +86,3 @@ while True:
         print(f"Opção '{op}' invalida ❌.")
         print()
 
-        
